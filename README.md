@@ -1,30 +1,41 @@
-# 🧩 Wordle Helper CLI 工具
+# 🧩 Wordle Helper CLI
 
-一个简单实用的命令行工具，帮助你快速在 Wordle 游戏中找出可能的单词组合！支持按位置匹配、必须包含/排除字母、自动多轮交互等功能。
+A simple and interactive command-line tool to help you solve Wordle puzzles.  
+Supports pattern-based word matching, required and excluded letters, and multilingual prompts (English / 中文).
 
----
-
-## 🚀 功能介绍
-
-- 支持使用 `_` 表示未知字母的匹配模式（如 `_a_im_`）
-- 支持指定必须包含的字母（黄字母）
-- 支持指定不能出现的字母（灰字母）
-- 自动下载英文词库（首次使用）
-- 支持多轮问答式交互
+[中文版本](./README_zh.md)
 
 ---
 
-## 📦 安装方法
+## 🚀 Features
 
-### 1. 创建虚拟环境（推荐）
+- Pattern input with `_` representing unknown letters (e.g. `_a_im_`)
+- Required letters (must appear somewhere in the word)
+- Excluded letters (must not appear)
+- Interactive Q&A mode (multi-round)
+- Language selection: English or Chinese
+- Automatically downloads English word list from NLTK
+
+---
+
+## 📦 Installation
+
+### 1. Clone the project
+
+```bash
+git clone https://github.com/your-username/wordle-helper.git
+cd wordle-helper
+```
+
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate     # Windows
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
 ```
 
-### 2. 安装依赖
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -32,55 +43,57 @@ pip install -r requirements.txt
 
 ---
 
-## 🕹️ 使用方法
-
-直接运行脚本进入问答模式：
+## 🕹️ How to Use
 
 ```bash
 python wordle_helper.py
 ```
 
-然后你会看到：
+You will be prompted to select a language and then answer:
 
-```txt
-请输入模式字符串（使用 _ 表示未知字母，例如 _a_im_）：
-请输入必须包含的字母（用逗号分隔，例如 e,o）：
-请输入必须排除的字母（用逗号分隔，例如 t,s,r）：
+```
+Select language / 选择语言: (en/zh): en
+
+🎯 Welcome to the Wordle Helper (Interactive Mode)
+
+Enter your pattern (use _ for unknown letters, e.g. _a_im_):
+Enter required letters (comma-separated, e.g. e,o):
+Enter excluded letters (comma-separated, e.g. t,s,r):
 ```
 
-程序会给出匹配的单词列表，并询问你是否进行下一轮。
+After each round, you can choose whether to continue or exit.
 
 ---
 
-## 📂 项目结构
+## 📂 Project Structure
 
-```txt
+```
 wordle-helper/
-├── wordle_helper.py      # 主程序
-├── requirements.txt      # 依赖列表
-├── .gitignore            # Git 忽略配置
-└── README.md             # 项目说明文档
+├── wordle_helper.py      # Main CLI script
+├── requirements.txt      # Python dependencies
+├── .gitignore            # Git ignore rules
+└── README.md             # Project documentation
 ```
 
 ---
 
-## 📌 依赖说明
+## 📌 Dependencies
 
 - Python 3.7+
-- nltk（用于英文词库）
+- `nltk` (for the English word list)
 
-首次运行会自动下载英文词库，无需手动操作。
+The word list will be downloaded automatically the first time you run the script.
 
 ---
 
-## 🧠 TODO（可选扩展）
+## 🧠 Future Ideas
 
-- 支持绿色字母（严格位置匹配）
-- 按单词频率排序（优先输出常见单词）
-- 导出结果为 txt 文件
-- GUI 版本 or 网页版
+- Support green/yellow/gray logic like real Wordle
+- Prioritize common words using frequency data
+- Export results to a file
+- Add GUI or web interface
 
-欢迎 PR！🚀
+Pull requests welcome! 🚀
 
 ---
 
