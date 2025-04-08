@@ -1,0 +1,23 @@
+# Python 相关
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.egg-info/
+*.log
+
+# NLTK 数据缓存
+nltk_data/
+
+# 虚拟环境
+venv/
+.env/
+.envrc
+
+# VSCode 编辑器相关（可选）
+.vscode/
+
+# macOS 系统文件（可选）
+.DS_Store
