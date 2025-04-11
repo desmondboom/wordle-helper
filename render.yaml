@@ -1,6 +1,6 @@
 services:
   - type: web
     name: wordle-helper
-    env: python
+    runtime: python
     buildCommand: pip install -r requirements.txt
     startCommand: streamlit run app.py
