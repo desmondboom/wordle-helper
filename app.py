@@ -57,14 +57,44 @@ def main():
             if results:
                 st.markdown("### 🎯 " + msg["results"].format(n=len(results)))
 
-                col1, col2, col3 = st.columns([1, 3, 1])
-                with col2:
-                    st.code("\n".join(results), language=None)
+                # 使用 Streamlit 的 columns API 创建 3 列网格
+                # 将结果按 3 列分组
+                cols_per_row = 3
+                rows = [
+                    results[i : i + cols_per_row]
+                    for i in range(0, len(results), cols_per_row)
+                ]
+
+                for row in rows:
+                    cols = st.columns(cols_per_row)
+                    for i, word in enumerate(row):
+                        with cols[i]:
+                            # 使用 st.container 创建卡片效果
+                            with st.container():
+                                st.markdown(
+                                    f"""
+                                    <div style="
+                                        background-color: #f0f2f6;
+                                        border: 1px solid #e0e0e0;
+                                        border-radius: 8px;
+                                        padding: 16px;
+                                        text-align: center;
+                                        font-size: 18px;
+                                        font-weight: bold;
+                                        color: #262730;
+                                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                                        margin: 4px 0;
+                                    ">
+                                        {word.upper()}
+                                    </div>
+                                    """,
+                                    unsafe_allow_html=True,
+                                )
 
             else:
                 st.error(msg["no_results"])
 
-    # st.divider()
+    st.divider()
 
     with st.expander(msg.get("help_title", "Help / 使用说明")):
         if st.session_state.language == "zh":
