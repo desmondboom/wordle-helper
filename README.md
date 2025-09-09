@@ -51,7 +51,7 @@ python wordle_helper.py
 
 You will be prompted to select a language and then answer:
 
-```
+```sh
 Select language / 选择语言: (en/zh): en
 
 🎯 Welcome to the Wordle Helper (Interactive Mode)
@@ -67,7 +67,7 @@ After each round, you can choose whether to continue or exit.
 
 ## 📂 Project Structure
 
-```
+```sh
 wordle-helper/
 ├── wordle_helper.py      # Main CLI script
 ├── requirements.txt      # Python dependencies
